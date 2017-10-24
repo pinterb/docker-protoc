@@ -1,7 +1,7 @@
-FROM namely/protoc
-MAINTAINER Core Services <coreservices@namely.com>
+FROM cdwlabs-docker.jfrog.io/protoc
+MAINTAINER Brad Pinter <brad.pinter@cdw.com>
 
-ENV GRPC_RELEASE v0.13.x 
+ENV GRPC_RELEASE v1.7.0
 
 # Install protoc java generator
 ###################################

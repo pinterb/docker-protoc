@@ -1,9 +1,9 @@
-FROM namely/protoc
-MAINTAINER Core Services <coreservices@namely.com>
+FROM cdwlabs-docker.jfrog.io/protoc
+MAINTAINER Brad Pinter <brad.pinter@cdw.com>
 
-ENV GO_VERSION 1.6.2
+ENV GO_VERSION 1.9.1
 ENV GO_SRC_URL http://golang.org/dl/go$GO_VERSION.src.tar.gz
-ENV GO_SRC_SHA1 787b0b750d037016a30c6ed05a8a70a91b2e9db4bd9b1a2453aa502a63f1bccc
+ENV GO_SRC_SHA1 a84afc9dc7d64fe0fa84d4d735e2ece23831a22117b50dafc75c1484f1cb550e
 
 ENV GO_BOOTSTRAP_VERSION 1.4.3
 ENV GO_BOOTSTRAP_URL http://storage.googleapis.com/golang/go$GO_BOOTSTRAP_VERSION.src.tar.gz

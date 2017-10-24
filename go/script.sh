@@ -13,7 +13,7 @@ fi
 echo "Found Proto definitions:"
 printf "\t+%s\n" "${pf[@]}"
 
-echo 
+echo
 
 if [ ! -d "$TARGET_DIR" ]; then
   mkdir $TARGET_DIR

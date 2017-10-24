@@ -5,9 +5,9 @@ set -e
 echo "Building Docker containers"
 
 declare -a IMAGES
-DIRS=( $(basename $(find . ! -path . -type d -not -path '*/\.*')) )
+DIRS=( $(basename -s $(find . ! -path . -type d -not -path '*/\.*') ) )
 
-REGISTRY='namely'
+REGISTRY='cdwlabs-docker.jfrog.io'
 BASE_IMAGE='protoc'
 TAG=$(git rev-parse --short HEAD)
 TAG='latest'

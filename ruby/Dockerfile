@@ -1,7 +1,7 @@
-FROM namely/protoc
-MAINTAINER Core Services <coreservices@namely.com>
+FROM cdwlabs-docker.jfrog.io/protoc
+MAINTAINER Brad Pinter <brad.pinter@cdw.com>
 
-ENV GRPC_RELEASE release-0_14_1
+ENV GRPC_RELEASE v1.6.7
 
 # Install protoc ruby generator
 ###################################

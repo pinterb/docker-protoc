@@ -1,5 +1,5 @@
-FROM alpine:3.4
-MAINTAINER Core Services <coreservices@namely.com>
+FROM alpine:3.6
+MAINTAINER Brad Pinter <brad.pinter@cdw.com>
 
 # Install Protoc
 ################
@@ -18,7 +18,7 @@ RUN set -ex \
   \
 	&& mkdir -p /tmp/protobufs \
 	&& cd /tmp/protobufs \
-	&& curl -o protobufs.tar.gz -L https://github.com/google/protobuf/releases/download/v3.0.0/protobuf-cpp-3.0.0.tar.gz \
+	&& curl -o protobufs.tar.gz -L https://github.com/google/protobuf/releases/download/v3.4.1/protobuf-cpp-3.4.1.tar.gz \
 	&& mkdir -p protobuf \
 	&& tar -zxvf protobufs.tar.gz -C /tmp/protobufs/protobuf --strip-components=1 \
 	&& cd protobuf \
@@ -29,7 +29,7 @@ RUN set -ex \
   && cd \
 	&& rm -rf /tmp/protobufs/ \
   && rm -rf /tmp/protobufs.tar.gz \
-	&& apk --no-cache add libstdc++ \ 
+	&& apk --no-cache add libstdc++ \
 	&& apk del .pb-build \
 	&& rm -rf /var/cache/apk/* \
 	&& mkdir /defs
