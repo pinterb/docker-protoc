@@ -10,6 +10,12 @@ if [ ${#pf[*]} -eq 0 ]; then
   exit 1
 fi
 
+if [ ${#pf[@]} -gt 1 ]; then
+  echo "More than one proto file found..."
+  echo "  by convention, only one proto file allowed!"
+  exit 1
+fi
+
 echo "Found Proto definitions:"
 printf "\t+%s\n" "${pf[@]}"
 
@@ -19,6 +25,11 @@ if [ ! -d "$TARGET_DIR" ]; then
   mkdir $TARGET_DIR
 fi
 
+# create a prefix for our FileDescriptorSet
+t1=${pf[@]}
+t2="$(echo $t1 | cut -d'/' -f2)"
+fds="$TARGET_DIR/$(echo $t2 | cut -d'.' -f1).desc"
+
 echo "Building objectivec..."
-protoc -I . ${pf[@]} --objc_out=./$TARGET_DIR --grpc_out=./$TARGET_DIR --plugin=protoc-gen-grpc=/opt/namely/grpc_objective_c_plugin
+protoc -I . ${pf[@]} --objc_out=./$TARGET_DIR --grpc_out=./$TARGET_DIR --plugin=protoc-gen-grpc=/opt/namely/grpc_objective_c_plugin -o./$fds
 echo "Done"

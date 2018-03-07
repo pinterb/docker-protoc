@@ -1,9 +1,9 @@
-FROM cdwlabs-docker.jfrog.io/protoc
+FROM cdwlabs-docker.jfrog.io/protoc:3.5.1
 MAINTAINER Brad Pinter <brad.pinter@cdw.com>
 
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 8.7.0
-ENV GRPC_RELEASE v1.6.7
+ENV GRPC_RELEASE v1.10.0
 
 # Install protoc node.js generator
 ###################################

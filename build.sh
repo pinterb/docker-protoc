@@ -9,8 +9,8 @@ DIRS=( $(basename -s $(find . ! -path . -type d -not -path '*/\.*') ) )
 
 REGISTRY='cdwlabs-docker.jfrog.io'
 BASE_IMAGE='protoc'
-TAG=$(git rev-parse --short HEAD)
-TAG='latest'
+#TAG=$(git rev-parse --short HEAD)
+TAG='3.5.1'
 
 buildAll () {
   docker build -t $REGISTRY/$BASE_IMAGE:$TAG .

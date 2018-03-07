@@ -1,9 +1,9 @@
-FROM cdwlabs-docker.jfrog.io/protoc
+FROM cdwlabs-docker.jfrog.io/protoc:3.5.1
 MAINTAINER Brad Pinter <brad.pinter@cdw.com>
 
-ENV GO_VERSION 1.9.1
+ENV GO_VERSION 1.10
 ENV GO_SRC_URL http://golang.org/dl/go$GO_VERSION.src.tar.gz
-ENV GO_SRC_SHA1 a84afc9dc7d64fe0fa84d4d735e2ece23831a22117b50dafc75c1484f1cb550e
+ENV GO_SRC_SHA1 f3de49289405fda5fd1483a8fe6bd2fa5469e005fd567df64485c4fa000c7f24
 
 ENV GO_BOOTSTRAP_VERSION 1.4.3
 ENV GO_BOOTSTRAP_URL http://storage.googleapis.com/golang/go$GO_BOOTSTRAP_VERSION.src.tar.gz
@@ -45,6 +45,7 @@ RUN set -ex \
   && mkdir -p "$GOPATH/src" "$GOPATH/bin" \
   && chmod -R 777 "$GOPATH" \
 	\
+	&& go get -u github.com/golang/dep/cmd/dep \
 	&& go get -a github.com/golang/protobuf/protoc-gen-go \
 	\
   && apk del .scm \
