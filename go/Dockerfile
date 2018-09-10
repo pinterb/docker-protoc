@@ -1,7 +1,7 @@
 FROM cdwlabs-docker.jfrog.io/protoc:3.5.1
 MAINTAINER Brad Pinter <brad.pinter@cdw.com>
 
-ENV GO_VERSION 1.10
+ENV GO_VERSION 1.10.1
 ENV GO_SRC_URL http://golang.org/dl/go$GO_VERSION.src.tar.gz
 ENV GO_SRC_SHA1 f3de49289405fda5fd1483a8fe6bd2fa5469e005fd567df64485c4fa000c7f24
 
@@ -47,6 +47,7 @@ RUN set -ex \
 	\
 	&& go get -u github.com/golang/dep/cmd/dep \
 	&& go get -a github.com/golang/protobuf/protoc-gen-go \
+	&& go get github.com/micro/protoc-gen-micro \
 	\
   && apk del .scm \
 	&& rm -rf /usr/local/bootstrap \
